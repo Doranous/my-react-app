@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Components/Login';
+import Main from './Components/Main';
+import SignUp1 from '../src/Components/SignUp1'; // Asigură-te că denumirea este corectă, inclusiv majusculele
+import Medic from './Components/Medic';
+import Pacient from './Components/Pacient';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp1 />} />
+                <Route path="/main" element={<Main />} />
+                <Route path="/medic" element={<Medic />} />
+                <Route path="/pacient" element={<Pacient />} />
+                <Route path="/" element={<Login />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
